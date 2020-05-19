@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACd,WAAW,EAAE,qBAAqB;EAClC,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,MAAM;CAC3B",
+    "sources": [
+        "ThirdDestination.scss"
+    ],
+    "names": [],
+    "file": "ThirdDestination.css"
+}

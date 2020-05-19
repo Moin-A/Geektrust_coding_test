@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,kBAAkB,CAAA;EACd,WAAW,EAAC,qBAAqB;EACjC,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,MAAM;CAC3B",
+    "sources": [
+        "SecondDestination.scss"
+    ],
+    "names": [],
+    "file": "SecondDestination.css"
+}

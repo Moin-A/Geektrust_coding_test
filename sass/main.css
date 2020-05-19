@@ -1,0 +1,102 @@
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  font-size: 2rem;
+}
+
+.container {
+  overflow: unset;
+  display: -ms-grid;
+  display: grid;
+  overflow: scroll;
+  position: relative;
+  -ms-grid-rows: 20vh 50vh;
+      grid-template-rows: 20vh 50vh;
+  -ms-grid-columns: [column-start] 1fr [centre-start] ([col-start] minmax(min-content, 14rem) [col-end])[12] [centre-end] 1fr [column-end];
+      grid-template-columns: [column-start] 1fr [centre-start] repeat(12, [col-start] minmax(-webkit-min-content, 14rem) [col-end]) [centre-end] 1fr [column-end];
+      grid-template-columns: [column-start] 1fr [centre-start] repeat(12, [col-start] minmax(min-content, 14rem) [col-end]) [centre-end] 1fr [column-end];
+}
+
+.main-nav {
+  background-color: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  display: -ms-grid;
+  display: grid;
+  padding: 0.5rem 0rem;
+  grid-column: column-start/column-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #b5a497;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.main-nav::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: url("http://www.dummyimage.com/300x300/000/fff&text=parent+image");
+  z-index: 11;
+}
+
+.issticky {
+  top: 0;
+}
+
+.FirstDestination {
+  grid-column: col-start 2/col-end 3;
+  margin: 2rem;
+  background-color: green;
+}
+
+.SecondDestination {
+  grid-column: col-start 4/col-end 5;
+  margin: 2rem;
+  background-color: purple;
+}
+
+.ThirdDestination {
+  grid-column: col-start 6/col-end 7;
+  margin: 2rem;
+  background-color: yellow;
+}
+
+.FourthDestination {
+  grid-column: col-start 8/col-end 9;
+  margin: 2rem;
+  background-color: pink;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,40 @@
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  font-size: 2rem;
+}
+
+.container {
+  overflow: unset;
+  display: -ms-grid;
+  display: grid;
+  overflow: scroll;
+  position: relative;
+  -ms-grid-rows: 20vh 50vh;
+      grid-template-rows: 20vh 50vh;
+  -ms-grid-columns: [column-start] 1fr [centre-start] ([col-start] minmax(min-content, 14rem) [col-end])[12] [centre-end] 1fr [column-end];
+      grid-template-columns: [column-start] 1fr [centre-start] repeat(12, [col-start] minmax(-webkit-min-content, 14rem) [col-end]) [centre-end] 1fr [column-end];
+      grid-template-columns: [column-start] 1fr [centre-start] repeat(12, [col-start] minmax(min-content, 14rem) [col-end]) [centre-end] 1fr [column-end];
+}
+/*# sourceMappingURL=base.css.map */
