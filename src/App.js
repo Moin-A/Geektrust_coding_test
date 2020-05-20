@@ -1,28 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 import Nav from "./Components/Nav";
-import FirstDesctination from  "./Components/FirstDestination";
-import SecondDesctination from  "./Components/SecondDestination";
-import ThirdDesctination from  "./Components/ThirdDestination";
-import FourthDestination from  "./Components/FourthDestination";
+import FirstDesctination from "./Components/FirstDestination";
+import SecondDestination from "./Components/SecondDestination";
+import ThirdDesctination from "./Components/ThirdDestination";
+import FourthDestination from "./Components/FourthDestination";
 
-
-
-
-function App() {
+const App = ({ DestinationList, VehicleList }) => {
   return (
-    <div className="container" style={{color: "red",height:"900px"}}>
-     <Nav  style={{color: "red",height:"900px"}}></Nav>
-     <FirstDesctination />
-     <SecondDesctination/>
-     <ThirdDesctination/>
-     <FourthDestination/>
-     
-     
-   
+    <div className="container" style={{ color: "red", height: "900px" }}>
+      <Nav style={{ color: "red", height: "900px" }}></Nav>
+      <FirstDesctination
+        DestinationList={DestinationList}
+        VehicleList={VehicleList}
+      />
+      <SecondDestination />
+      <ThirdDesctination />
+      <FourthDestination />
     </div>
   );
-}
+};
 
 export default App;

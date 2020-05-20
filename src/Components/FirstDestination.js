@@ -9,8 +9,8 @@ import ThemeContext from "../Context/Context";
 //*(We need a way to call the places api and return a list of DEstination)
 //**will craete the useeffct in index.js for place, pass down the states via context */
 
-const FirstDestination = () => {
-  const { DestinationList, VehicleList } = useContext(ThemeContext);
+const FirstDestination = ({ DestinationList, VehicleList }) => {
+  // const { DestinationList, VehicleList } = useContext(ThemeContext);
   const [Destination, updateDestination] = useState(DestinationList[0]);
   const [Vehicle, updateVehicle] = useState(VehicleList[0]);
 
@@ -30,7 +30,7 @@ const FirstDestination = () => {
           onBlur={(event) => updateDestination(event.target.value)}
         >
           <option />
-          {DestinationList[0].map((item) => (
+          {DestinationList.map((item) => (
             <option key={item[0]} value={item[0]}>
               {item[0]}
             </option>
@@ -47,7 +47,7 @@ const FirstDestination = () => {
           onBlur={(event) => updateVehicle(event.target.value)}
         >
           <option />
-          {VehicleList[0].map((item) => (
+          {VehicleList.map((item) => (
             <option key={item[0]} value={item}>
               {item[0]}
             </option>

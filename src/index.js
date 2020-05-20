@@ -1,43 +1,76 @@
-import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import Themecontext from "./Context/Context";
-import fetchDestinations from "./Utility/collectDestinationList,";
+import axios from "axios";
 
-const Index = () => {
-  const DestinationList = useState(["Moin"]);
-  const VehicleList = useState(["car"]);
-  var globalText = "";
+class Index extends Component {
+  constructor(props) {
+    super(props);
 
-  // async function fetchData() {
-  //   fetch("https://findfalcone.herokuapp.com/planets  ")
-  //     .then((res) => res.json())
-  //     .then((res) => DestinationList[1](res.map((x) => [x.name, x.distance])))
-  //     .catch((x) => console.log(x));
-  // }
+    this.state = {
+      DestinationList: [
+        ["Moin", "uxann"],
+        ["Moinx", "xjanxjan"],
+      ],
+      VehicleList: [["Moinx", "xjanxjan"]],
+      Maps1: [
+        new Map([
+          ["key1", "value1"],
+          ["key2", "value2"],
+        ]),
+      ],
+    };
+  }
 
-  useEffect(() => {
-    fetchDestinations(
-      DestinationList[1],
-      "https://findfalcone.herokuapp.com/planets"
+  componentDidMount() {
+    axios
+      .get(`https://findfalcone.herokuapp.com/vehicles`)
+      .then((res) =>
+        res.data.map((x) => [
+          x.name,
+          x.distance || x.total_no,
+          x.max_distance,
+          x.speed,
+        ])
+      )
+      .then((data) => {
+        let clone = new Map(this.state.Maps1);
+        clone.delete(undefined);
+        data.map((item) => clone.set(item[0], item[1]));
+        this.setState({ Maps1: clone, VehicleList: data });
+
+        debugger;
+      });
+    axios
+      .get(`https://findfalcone.herokuapp.com/planets`)
+      .then((res) =>
+        res.data.map((x) => [
+          x.name,
+          x.distance || x.total_no,
+          x.max_distance,
+          x.speed,
+        ])
+      )
+      .then((data) => {
+        this.setState({ DestinationList: data });
+      });
+
+    debugger;
+  }
+  render() {
+    const { DestinationList, VehicleList, Maps1 } = this.state;
+    return (
+      <React.StrictMode>
+        <App
+          DestinationList={DestinationList}
+          VehicleList={VehicleList}
+          Maps1={Maps1}
+        />
+      </React.StrictMode>
     );
-    fetchDestinations(
-      VehicleList[1],
-      "https://ﬁndfalcone.herokuapp.com/vehicles"
-    );
-  });
-
-  return (
-    <React.StrictMode>
-      <Themecontext.Provider value={{ DestinationList, VehicleList }}>
-        <App />
-      </Themecontext.Provider>
-    </React.StrictMode>
-  );
-};
+  }
+}
 
 ReactDOM.render(<Index />, document.getElementById("root"));
 
-serviceWorker.unregister();
+// serviceWorker.unregister();
