@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-const ThirdDestination = ({ DestinationList, VehicleList }) => {
+const ThirdDestination = ({ DestinationList, VehicleList, Maps1 }) => {
   // const { DestinationList, VehicleList } = useContext(ThemeContext);
   const [Destination, updateDestination] = useState(DestinationList);
   const [Vehicle, updateVehicle] = useState(VehicleList);
   const [selectedoption, setselectedoption] = useState("");
-
-  useEffect(() => {
-    updateDestination("");
-  }, []);
 
   return (
     <div style={{ color: "black" }} className="ThirdDestination">

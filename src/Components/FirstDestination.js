@@ -2,22 +2,22 @@ import React, { useState, useContext, useEffect } from "react";
 import ThemeContext from "../Context/Context";
 
 //!`--------------------------------------------------------
-//**And I need to map the all the options alse */
+//**And I need to map the all the options alse *1
 // ?Here I have to call the api call for destination 1 based on the option
 //!`--------------------------------------------------------
 //!`--------------------------------------------------------
 //*(We need a way to call the places api and return a list of DEstination)
 //**will craete the useeffct in index.js for place, pass down the states via context */
 
-const FirstDestination = ({ DestinationList, VehicleList }) => {
+const FirstDestination = ({ DestinationList, VehicleList, Maps }) => {
   // const { DestinationList, VehicleList } = useContext(ThemeContext);
   const [Destination, updateDestination] = useState(DestinationList[0]);
   const [Vehicle, updateVehicle] = useState(VehicleList[0]);
   const [selectedoption, setselectedoption] = useState("");
-
-  useEffect(() => {
-    updateDestination("");
-  }, []);
+  const [maps, setMaps] = useState(Maps);
+  function handleChange(event, Maps) {
+    setselectedoption(event.target.value);
+  }
 
   return (
     <div style={{ color: "black" }} className="FirstDestination">
@@ -38,24 +38,7 @@ const FirstDestination = ({ DestinationList, VehicleList }) => {
           ))}
         </select>
       </label>
-      {/* <label htmlFor={"Vehicle"}>
-        VehicleList
-        <select
-          style={{ width: "66%" }}
-          id={"Vehicle"}
-          value={Vehicle}
-          onChange={(event) => updateVehicle(event.target.value)}
-          onBlur={(event) => updateVehicle(event.target.value)}
-        >
-          <option />
-          {VehicleList.map((item) => (
-            <option key={item[0]} value={item}>
-              {item[0]}
-            </option>
-          ))}
-        </select> */}
 
-      {/* </label> */}
       {VehicleList.map((item) => (
         <React.Fragment>
           <br />
@@ -65,9 +48,7 @@ const FirstDestination = ({ DestinationList, VehicleList }) => {
             id={`Fir${item}`}
             checked={selectedoption === item[0]}
             value={item[0]}
-            onChange={(event) => {
-              setselectedoption(event.target.value);
-            }}
+            onChange={(e) => handleChange(e, Maps)}
           ></input>
           <label htmlFor={`Fir${item}`}> {item[0]} </label>
         </React.Fragment>
@@ -75,6 +56,5 @@ const FirstDestination = ({ DestinationList, VehicleList }) => {
     </div>
   );
 };
-// ajxajbxajbabx
 
 export default FirstDestination;
