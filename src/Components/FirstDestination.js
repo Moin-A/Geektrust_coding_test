@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import ThemeContext from "../Context/Context";
+// import UseDropdown from "../CustomHooks/UseDropdown";
 
 //!`--------------------------------------------------------
 //**And I need to map the all the options alse */
@@ -10,13 +11,21 @@ import ThemeContext from "../Context/Context";
 //**will craete the useeffct in index.js for place, pass down the states via context */
 
 const FirstDestination = () => {
-  const { DestinationList, VehicleList } = useContext(ThemeContext);
+  const { DestinationList, VehicleList, Maps } = useContext(ThemeContext);
+
   const [Destination, updateDestination] = useState(DestinationList[0]);
   const [Vehicle, updateVehicle] = useState(VehicleList[0]);
+  const [selectedoption, setselectedoption] = useState([]);
+  const [FirstDestionationVehicle, SetFirstDestionationVehicle] = useState([]);
+  // const [Vehicle, VehicaleDropdown, updateVehicle] = UseDropdown(
+  //   "Vehicle",
 
-  useEffect(() => {
-    updateDestination("");
-  }, []);
+  //   "DestinationList"
+  // );
+  // const [Destination, DestinationDropdown, updateDestination] = UseDropdown(
+  //   "Destination",
+  //   "VehicleList"
+  // );
 
   return (
     <div style={{ color: "black" }} className="FirstDestination">
@@ -37,9 +46,11 @@ const FirstDestination = () => {
           ))}
         </select>
       </label>
-      <label htmlFor={"Vehicle"}>
+      {/* <DestinationDropdown /> */}
+      {/* <label htmlFor={"Vehicle"}>
         VehicleList
-        <select
+        <input
+          type="radio"
           style={{ width: "66%" }}
           id={"Vehicle"}
           value={Vehicle}
@@ -52,8 +63,26 @@ const FirstDestination = () => {
               {item[0]}
             </option>
           ))}
-        </select>
-      </label>
+        </input>
+      </label> */}
+      {/* <VehicaleDropdown /> */}
+      {VehicleList[0].map((item) => (
+        <React.Fragment>
+          <br />
+          <input
+            key={`Fou${item}`}
+            type={"radio"}
+            id={item[0]}
+            value={item[0]}
+            checked={selectedoption === item[0]}
+            onChange={(event) => {
+              setselectedoption(event.target.value);
+              SetFirstDestionationVehicle(item);
+            }}
+          ></input>
+          <label htmlFor={item[0]}> {item[0]} </label>
+        </React.Fragment>
+      ))}
     </div>
   );
 };
