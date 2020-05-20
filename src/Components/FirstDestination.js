@@ -13,6 +13,7 @@ const FirstDestination = ({ DestinationList, VehicleList }) => {
   // const { DestinationList, VehicleList } = useContext(ThemeContext);
   const [Destination, updateDestination] = useState(DestinationList[0]);
   const [Vehicle, updateVehicle] = useState(VehicleList[0]);
+  const [selectedoption, setselectedoption] = useState("");
 
   useEffect(() => {
     updateDestination("");
@@ -37,7 +38,7 @@ const FirstDestination = ({ DestinationList, VehicleList }) => {
           ))}
         </select>
       </label>
-      <label htmlFor={"Vehicle"}>
+      {/* <label htmlFor={"Vehicle"}>
         VehicleList
         <select
           style={{ width: "66%" }}
@@ -52,8 +53,25 @@ const FirstDestination = ({ DestinationList, VehicleList }) => {
               {item[0]}
             </option>
           ))}
-        </select>
-      </label>
+        </select> */}
+
+      {/* </label> */}
+      {VehicleList.map((item) => (
+        <React.Fragment>
+          <br />
+          <input
+            key={`Fir${item}`}
+            type={"radio"}
+            id={`Fir${item}`}
+            checked={selectedoption === item[0]}
+            value={item[0]}
+            onChange={(event) => {
+              setselectedoption(event.target.value);
+            }}
+          ></input>
+          <label htmlFor={`Fir${item}`}> {item[0]} </label>
+        </React.Fragment>
+      ))}
     </div>
   );
 };

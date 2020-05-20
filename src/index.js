@@ -38,8 +38,6 @@ class Index extends Component {
         clone.delete(undefined);
         data.map((item) => clone.set(item[0], item[1]));
         this.setState({ Maps1: clone, VehicleList: data });
-
-        debugger;
       });
     axios
       .get(`https://findfalcone.herokuapp.com/planets`)
@@ -54,8 +52,6 @@ class Index extends Component {
       .then((data) => {
         this.setState({ DestinationList: data });
       });
-
-    debugger;
   }
   render() {
     const { DestinationList, VehicleList, Maps1 } = this.state;

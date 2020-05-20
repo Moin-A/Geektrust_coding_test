@@ -15,9 +15,18 @@ const App = ({ DestinationList, VehicleList }) => {
         DestinationList={DestinationList}
         VehicleList={VehicleList}
       />
-      <SecondDestination />
-      <ThirdDesctination />
-      <FourthDestination />
+      <SecondDestination
+        DestinationList={DestinationList}
+        VehicleList={VehicleList}
+      />
+      <ThirdDesctination
+        DestinationList={DestinationList}
+        VehicleList={VehicleList}
+      />
+      <FourthDestination
+        DestinationList={DestinationList}
+        VehicleList={VehicleList}
+      />
     </div>
   );
 };
