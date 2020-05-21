@@ -15,8 +15,17 @@ const FirstDestination = ({ DestinationList, VehicleList, Maps }) => {
   const [Vehicle, updateVehicle] = useState(VehicleList[0]);
   const [selectedoption, setselectedoption] = useState("");
   const [maps, setMaps] = useState(Maps);
-  function handleChange(event, Maps) {
+  let moin = maps.values();
+  let moin2 = maps.values();
+
+  useEffect(() => {
+    setMaps(Maps);
+  }, [Maps]);
+
+  function handleChange(event, Maps, item) {
+    debugger;
     setselectedoption(event.target.value);
+    Maps.set(event.target.value, Maps.get(event.target.value) - 1);
   }
 
   return (
@@ -32,7 +41,7 @@ const FirstDestination = ({ DestinationList, VehicleList, Maps }) => {
         >
           <option />
           {DestinationList.map((item) => (
-            <option key={item[0]} value={item[0]}>
+            <option key={item[0]} value={item}>
               {item[0]}
             </option>
           ))}
@@ -48,9 +57,12 @@ const FirstDestination = ({ DestinationList, VehicleList, Maps }) => {
             id={`Fir${item}`}
             checked={selectedoption === item[0]}
             value={item[0]}
+            disabled={moin2.next().value == 0}
             onChange={(e) => handleChange(e, Maps)}
           ></input>
-          <label htmlFor={`Fir${item}`}> {item[0]} </label>
+          <label htmlFor={`Fir${item}`}>
+            {item[0]} {moin.next().value}
+          </label>
         </React.Fragment>
       ))}
     </div>
