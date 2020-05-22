@@ -13,6 +13,7 @@ class Index extends Component {
         ["Moinx", "xjanxjan"],
       ],
       VehicleList: [["Moinx", "xjanxjan"]],
+      Maps: "",
       Maps1: [
         new Map([
           ["key1", "value1"],
@@ -53,6 +54,7 @@ class Index extends Component {
         this.setState({ DestinationList: data });
       });
   }
+
   render() {
     const { DestinationList, VehicleList, Maps1 } = this.state;
     return (
