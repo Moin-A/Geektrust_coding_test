@@ -1,17 +1,28 @@
-import React, { Component, useContext } from "react";
+import React, { Component } from "react";
 import ThemeContext from "../Context/Context";
+import { clone } from "lodash";
 
-const Results = () => {
-  const xyz = useContext(ThemeContext);
-  const { FirstDestination, FirstVehicle } = xyz;
+class Results extends Component {
+  componentWillReceiveProps(props, state) {
+    let copy = clone(props.State);
+    if (copy.Maps1) {
+      delete copy.Maps1;
+    }
+    this.setState({ Results: copy });
+  }
 
-  debugger;
+  componentDidUpdate(props, state) {}
 
-  return (
-    <div className={"Results"} style={{ color: "black" }}>
-      {FirstVehicle} {FirstDestination}
-    </div>
-  );
-};
+  constructor(props) {
+    super(props);
+    this.state = {
+      Results: 0,
+    };
+  }
+
+  render() {
+    return <div className={"Results"} style={{ color: "black" }}></div>;
+  }
+}
 
 export default Results;

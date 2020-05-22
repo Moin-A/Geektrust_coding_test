@@ -61,7 +61,8 @@ class SecondDestination extends Component {
               disabled={
                 moin2.next().value == 0 ||
                 this.state.isselected ||
-                this.state.SecondDestination == undefined
+                this.state.SecondDestination == undefined ||
+                +this.state.SecondDestination.split(",")[1] > +item[2]
               }
               onChange={(e) => {
                 handleChange(e, Maps);

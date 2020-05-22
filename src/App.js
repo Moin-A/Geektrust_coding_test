@@ -22,15 +22,9 @@ class App extends Component {
   }
 
   handler(event, states) {
+    debugger;
     this.setState({ ...states });
     let x = Object.keys({ ...states });
-
-    this.setState((state, event) => {
-      debugger;
-      return {
-        Maps: state.Maps,
-      };
-    });
   }
 
   componentDidUpdate(prevProps) {
@@ -62,16 +56,16 @@ class App extends Component {
             <ThirdDesctination
               DestinationList={DestinationList}
               VehicleList={VehicleList}
-              Maps={Maps1}
+              Maps={this.state.Maps1}
               handler={this.handler}
             />
             <FourthDestination
               DestinationList={DestinationList}
               VehicleList={VehicleList}
-              Maps={Maps1}
+              Maps={this.state.Maps1}
               handler={this.handler}
             />
-            <Results />
+            <Results State={this.state} />
           </div>
         </div>
       </ThemeContext.Provider>

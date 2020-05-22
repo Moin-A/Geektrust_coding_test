@@ -17,9 +17,13 @@ class FourthDestination extends Component {
 
     const handleChange = (event, Maps) => {
       this.setState({ isselected: true });
-      this.setState({ selectedoption: event.target.value });
+      this.setState({ FourthVehicle: event.target.value });
       Maps.set(event.target.value, Maps.get(event.target.value) - 1);
-      this.props.handler(event);
+      debugger;
+      this.props.handler(event, {
+        FourthVehicle: event.target.value,
+        FourthDestination: this.state.FourthDestination,
+      });
     };
 
     return (
@@ -53,12 +57,13 @@ class FourthDestination extends Component {
               key={`Fou${item}`}
               type={"radio"}
               id={`Fou${item}`}
-              checked={this.state.selectedoption === item[0]}
+              checked={this.state.FourthVehicle === item[0]}
               value={item[0]}
               disabled={
                 moin2.next().value == 0 ||
                 this.state.isselected ||
-                this.state.FourthDestination == undefined
+                this.state.FourthDestination == undefined ||
+                +this.state.FourthDestination.split(",")[1] > +item[2]
               }
               onChange={(e) => handleChange(e, Maps)}
             ></input>

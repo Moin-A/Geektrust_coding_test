@@ -45,7 +45,7 @@ class FirstDestination extends Component {
           >
             <option />
             {DestinationList.map((item) => (
-              <option key={item[0]} value={item}>
+              <option key={item} value={item}>
                 {item[0]}
               </option>
             ))}
@@ -64,7 +64,8 @@ class FirstDestination extends Component {
               disabled={
                 moin2.next().value == 0 ||
                 this.state.isselected ||
-                this.state.FirstDestination == undefined
+                this.state.FirstDestination == undefined ||
+                +this.state.FirstDestination.split(",")[1] > +item[2]
               }
               onChange={(e) => {
                 this.setState({ FirstVehicle: e.target.value });
