@@ -6,6 +6,7 @@ class FirstDestination extends Component {
     super(props);
     this.state = {
       selectedoption: "",
+      isselected: false,
     };
   }
 
@@ -17,6 +18,7 @@ class FirstDestination extends Component {
 
     const handleChange = (event, Maps) => {
       this.setState({ selectedoption: event.target.value });
+      this.setState({ isselected: true });
       Maps.set(event.target.value, Maps.get(event.target.value) - 1);
       this.props.handler(event);
     };
@@ -54,7 +56,7 @@ class FirstDestination extends Component {
               id={`Fir${item}`}
               checked={this.state.selectedoption === item[0]}
               value={item[0]}
-              disabled={moin2.next().value == 0}
+              disabled={moin2.next().value == 0 || this.state.isselected}
               onChange={(e) => handleChange(e, Maps)}
             ></input>
             <label htmlFor={`Fir${item}`}>

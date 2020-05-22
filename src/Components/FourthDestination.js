@@ -1,67 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React, { Component, render } from "react";
 
-const FourthDestination = ({ DestinationList, VehicleList, Maps1 }) => {
-  // const { DestinationList, VehicleList } = useContext(ThemeContext);
-  const [Destination, updateDestination] = useState(DestinationList);
-  const [Vehicle, updateVehicle] = useState(VehicleList);
-  const [selectedoption, setselectedoption] = useState("");
+class FirstDestination extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedoption: "",
+    };
+  }
 
-  return (
-    <div style={{ color: "black" }} className="FourthDestination">
-      <label htmlFor={"Location"}>
-        Desctination1
-        <select
-          style={{ width: "66%" }}
-          id={"Location"}
-          value={Destination}
-          onChange={(event) => updateDestination(event.target.value)}
-          onBlur={(event) => updateDestination(event.target.value)}
-        >
-          <option />
-          {DestinationList.map((item) => (
-            <option key={item[0]} value={item[0]}>
-              {item[0]}
-            </option>
-          ))}
-        </select>
-      </label>
-      {/* <label htmlFor={"Vehicle"}>
-        VehicleList
-        <select
-          style={{ width: "66%" }}
-          id={"Vehicle"}
-          value={Vehicle}
-          onChange={(event) => updateVehicle(event.target.value)}
-          onBlur={(event) => updateVehicle(event.target.value)}
-        >
-          <option />
-          {VehicleList.map((item) => (
-            <option key={item[0]} value={item}>
-              {item[0]}
-            </option>
-          ))}
-        </select> */}
+  render() {
+    const { DestinationList, VehicleList, Maps } = this.props;
 
-      {/* </label> */}
-      {VehicleList.map((item) => (
-        <React.Fragment>
-          <br />
-          <input
-            key={`Fou${item}`}
-            type={"radio"}
-            id={`Fou${item}`}
-            checked={selectedoption === item[0]}
-            value={item[0]}
-            onChange={(event) => {
-              setselectedoption(event.target.value);
-            }}
-          ></input>
-          <label htmlFor={`Fou${item}`}> {item[0]} </label>
-        </React.Fragment>
-      ))}
-    </div>
-  );
-};
-// ajxajbxajbabx
+    let moin = Maps.values();
+    let moin2 = Maps.values();
 
-export default FourthDestination;
+    const handleChange = (event, Maps) => {
+      this.setState({ selectedoption: event.target.value });
+      Maps.set(event.target.value, Maps.get(event.target.value) - 1);
+      this.props.handler(event);
+    };
+
+    return (
+      <div style={{ color: "black" }} className="FourthDestination">
+        <label htmlFor={"Location"}>
+          Desctination 4
+          <select
+            style={{ width: "66%" }}
+            id={"Location"}
+            value={""}
+            onChange={(event) =>
+              this.setState({ Destination: event.target.value })
+            }
+            onBlur={(event) =>
+              this.setState({ Destination: event.target.value })
+            }
+          >
+            <option />
+            {DestinationList.map((item) => (
+              <option key={item[0]} value={item}>
+                {item[0]}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        {VehicleList.map((item) => (
+          <React.Fragment>
+            <br />
+            <input
+              key={`Fou${item}`}
+              type={"radio"}
+              id={`Fou${item}`}
+              checked={this.state.selectedoption === item[0]}
+              value={item[0]}
+              disabled={moin2.next().value == 0 || this.state.isselected}
+              onChange={(e) => handleChange(e, Maps)}
+            ></input>
+            <label htmlFor={`Fou${item}`}>
+              {item[0]} {moin.next().value}
+            </label>
+          </React.Fragment>
+        ))}
+      </div>
+    );
+  }
+}
+
+export default FirstDestination;

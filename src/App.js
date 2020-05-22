@@ -56,11 +56,13 @@ class App extends Component {
             DestinationList={DestinationList}
             VehicleList={VehicleList}
             Maps={Maps1}
+            handler={this.handler}
           />
           <FourthDestination
             DestinationList={DestinationList}
             VehicleList={VehicleList}
             Maps={Maps1}
+            handler={this.handler}
           />
         </div>
       </div>
