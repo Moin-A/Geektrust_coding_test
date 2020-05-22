@@ -12,7 +12,6 @@ class App extends Component {
     super(props);
     this.handler = this.handler.bind(this);
     this.state = {
-      sas: 1,
       Maps1: new Map([
         ["key1", "value1"],
         ["key2", "value2"],
@@ -22,13 +21,10 @@ class App extends Component {
 
   handler(event) {
     this.setState((state, event) => {
-      debugger;
       return {
         Maps: state.Maps,
       };
     });
-
-    debugger;
   }
 
   componentDidUpdate(prevProps) {
@@ -54,6 +50,7 @@ class App extends Component {
             DestinationList={DestinationList}
             VehicleList={VehicleList}
             Maps={this.state.Maps1}
+            handler={this.handler}
           />
           <ThirdDesctination
             DestinationList={DestinationList}
