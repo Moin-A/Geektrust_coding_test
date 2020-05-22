@@ -17,9 +17,12 @@ class SecondDestination extends Component {
 
     const handleChange = (event, Maps) => {
       this.setState({ isselected: true });
-      this.setState({ selectedoption: event.target.value });
+      this.setState({ SecondVehicle: event.target.value });
       Maps.set(event.target.value, Maps.get(event.target.value) - 1);
-      this.props.handler(event, this.state);
+      this.props.handler(event, {
+        SecondVehicle: event.target.value,
+        SecondDestination: this.state.SecondDestination,
+      });
     };
 
     return (
@@ -29,12 +32,12 @@ class SecondDestination extends Component {
           <select
             style={{ width: "66%" }}
             id={"Location"}
-            value={this.state.Destination}
+            value={this.state.SecondDestination}
             onChange={(event) =>
-              this.setState({ Destination: event.target.value })
+              this.setState({ SecondDestination: event.target.value })
             }
             onBlur={(event) =>
-              this.setState({ Destination: event.target.value })
+              this.setState({ SecondDestination: event.target.value })
             }
           >
             <option />
@@ -50,15 +53,21 @@ class SecondDestination extends Component {
           <React.Fragment>
             <br />
             <input
-              key={`sec${item}`}
+              key={`Sec${item}`}
               type={"radio"}
-              id={`sec${item}`}
-              checked={this.state.selectedoption === item[0]}
+              id={`Sec${item}`}
+              checked={this.state.SecondVehicle === item[0]}
               value={item[0]}
-              disabled={moin2.next().value == 0 || this.state.isselected}
-              onChange={(e) => handleChange(e, Maps)}
+              disabled={
+                moin2.next().value == 0 ||
+                this.state.isselected ||
+                this.state.SecondDestination == undefined
+              }
+              onChange={(e) => {
+                handleChange(e, Maps);
+              }}
             ></input>
-            <label htmlFor={`sec${item}`}>
+            <label htmlFor={`Sec${item}`}>
               {item[0]} {moin.next().value}
             </label>
           </React.Fragment>

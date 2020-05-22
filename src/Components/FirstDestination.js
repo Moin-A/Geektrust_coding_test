@@ -61,7 +61,11 @@ class FirstDestination extends Component {
               id={`Fir${item}`}
               checked={this.state.FirstVehicle === item[0]}
               value={item[0]}
-              disabled={moin2.next().value == 0 || this.state.isselected}
+              disabled={
+                moin2.next().value == 0 ||
+                this.state.isselected ||
+                this.state.FirstDestination == undefined
+              }
               onChange={(e) => {
                 this.setState({ FirstVehicle: e.target.value });
                 handleChange(e, Maps);

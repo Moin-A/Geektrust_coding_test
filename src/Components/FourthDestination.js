@@ -29,12 +29,12 @@ class FourthDestination extends Component {
           <select
             style={{ width: "66%" }}
             id={"Location"}
-            value={this.state.Destination}
+            value={this.state.FourthDestination}
             onChange={(event) =>
-              this.setState({ Destination: event.target.value })
+              this.setState({ FourthDestination: event.target.value })
             }
             onBlur={(event) =>
-              this.setState({ Destination: event.target.value })
+              this.setState({ FouthDestination: event.target.value })
             }
           >
             <option />
@@ -55,7 +55,11 @@ class FourthDestination extends Component {
               id={`Fou${item}`}
               checked={this.state.selectedoption === item[0]}
               value={item[0]}
-              disabled={moin2.next().value == 0 || this.state.isselected}
+              disabled={
+                moin2.next().value == 0 ||
+                this.state.isselected ||
+                this.state.FourthDestination == undefined
+              }
               onChange={(e) => handleChange(e, Maps)}
             ></input>
             <label htmlFor={`Fou${item}`}>

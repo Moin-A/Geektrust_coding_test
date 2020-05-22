@@ -3,11 +3,13 @@ import ThemeContext from "../Context/Context";
 
 const Results = () => {
   const xyz = useContext(ThemeContext);
-  const { Maps1, FirstDesctination } = xyz;
+  const { FirstDestination, FirstVehicle } = xyz;
+
+  debugger;
 
   return (
-    <div className={"Results"}>
-      {Maps1} {FirstDesctination}
+    <div className={"Results"} style={{ color: "black" }}>
+      {FirstVehicle} {FirstDestination}
     </div>
   );
 };

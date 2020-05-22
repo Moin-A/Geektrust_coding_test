@@ -29,12 +29,12 @@ class ThirdDestination extends Component {
           <select
             style={{ width: "66%" }}
             id={"Location"}
-            value={this.state.Destination}
+            value={this.state.ThirdDestination}
             onChange={(event) =>
-              this.setState({ Destination: event.target.value })
+              this.setState({ ThirdDestination: event.target.value })
             }
             onBlur={(event) =>
-              this.setState({ Destination: event.target.value })
+              this.setState({ ThirdDestination: event.target.value })
             }
           >
             <option />
@@ -55,7 +55,11 @@ class ThirdDestination extends Component {
               id={`Third${item}`}
               checked={this.state.selectedoption === item[0]}
               value={item[0]}
-              disabled={moin2.next().value == 0 || this.state.isselected}
+              disabled={
+                moin2.next().value == 0 ||
+                this.state.isselected ||
+                this.state.ThirdDestination == undefined
+              }
               onChange={(e) => handleChange(e, Maps)}
             ></input>
             <label htmlFor={`Third${item}`}>
