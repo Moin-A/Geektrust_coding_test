@@ -1,10 +1,11 @@
 import React, { Component, render } from "react";
 
-class FirstDestination extends Component {
+class FourthDestination extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedoption: "",
+      isselected: false,
     };
   }
 
@@ -15,6 +16,7 @@ class FirstDestination extends Component {
     let moin2 = Maps.values();
 
     const handleChange = (event, Maps) => {
+      this.setState({ isselected: true });
       this.setState({ selectedoption: event.target.value });
       Maps.set(event.target.value, Maps.get(event.target.value) - 1);
       this.props.handler(event);
@@ -27,7 +29,7 @@ class FirstDestination extends Component {
           <select
             style={{ width: "66%" }}
             id={"Location"}
-            value={""}
+            value={this.state.Destination}
             onChange={(event) =>
               this.setState({ Destination: event.target.value })
             }
@@ -66,4 +68,4 @@ class FirstDestination extends Component {
   }
 }
 
-export default FirstDestination;
+export default FourthDestination;

@@ -6,6 +6,8 @@ import SecondDestination from "./Components/SecondDestination";
 import ThirdDesctination from "./Components/ThirdDestination";
 import FourthDestination from "./Components/FourthDestination";
 import React, { Component } from "react";
+import Results from "./Components/Results";
+import ThemeContext from "./Context/Context";
 
 class App extends Component {
   constructor(props) {
@@ -19,8 +21,12 @@ class App extends Component {
     };
   }
 
-  handler(event) {
+  handler(event, states) {
+    this.setState({ ...states });
+    let x = Object.keys({ ...states });
+
     this.setState((state, event) => {
+      debugger;
       return {
         Maps: state.Maps,
       };
@@ -37,35 +43,38 @@ class App extends Component {
     const { DestinationList, VehicleList, Maps1 } = this.props;
 
     return (
-      <div>
-        <div className="container" style={{ color: "red", height: "900px" }}>
-          <Nav style={{ color: "red", height: "900px" }}></Nav>
-          <FirstDesctination
-            DestinationList={DestinationList}
-            VehicleList={VehicleList}
-            Maps={this.state.Maps1}
-            handler={this.handler}
-          />
-          <SecondDestination
-            DestinationList={DestinationList}
-            VehicleList={VehicleList}
-            Maps={this.state.Maps1}
-            handler={this.handler}
-          />
-          <ThirdDesctination
-            DestinationList={DestinationList}
-            VehicleList={VehicleList}
-            Maps={Maps1}
-            handler={this.handler}
-          />
-          <FourthDestination
-            DestinationList={DestinationList}
-            VehicleList={VehicleList}
-            Maps={Maps1}
-            handler={this.handler}
-          />
+      <ThemeContext.Provider value={this.state}>
+        <div>
+          <div className="container" style={{ color: "red", height: "900px" }}>
+            <Nav style={{ color: "red", height: "900px" }}></Nav>
+            <FirstDesctination
+              DestinationList={DestinationList}
+              VehicleList={VehicleList}
+              Maps={this.state.Maps1}
+              handler={this.handler}
+            />
+            <SecondDestination
+              DestinationList={DestinationList}
+              VehicleList={VehicleList}
+              Maps={this.state.Maps1}
+              handler={this.handler}
+            />
+            <ThirdDesctination
+              DestinationList={DestinationList}
+              VehicleList={VehicleList}
+              Maps={Maps1}
+              handler={this.handler}
+            />
+            <FourthDestination
+              DestinationList={DestinationList}
+              VehicleList={VehicleList}
+              Maps={Maps1}
+              handler={this.handler}
+            />
+            <Results />
+          </div>
         </div>
-      </div>
+      </ThemeContext.Provider>
     );
   }
 }
