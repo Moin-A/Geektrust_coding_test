@@ -29,13 +29,17 @@ body {
   overflow: unset;
   display: -ms-grid;
   display: grid;
-  overflow: scroll;
   position: relative;
   -ms-grid-rows: 20vh 50vh;
       grid-template-rows: 20vh 50vh;
   -ms-grid-columns: [column-start] 1fr [centre-start] ([col-start] minmax(min-content, 14rem) [col-end])[12] [centre-end] 1fr [column-end];
       grid-template-columns: [column-start] 1fr [centre-start] repeat(12, [col-start] minmax(-webkit-min-content, 14rem) [col-end]) [centre-end] 1fr [column-end];
       grid-template-columns: [column-start] 1fr [centre-start] repeat(12, [col-start] minmax(min-content, 14rem) [col-end]) [centre-end] 1fr [column-end];
+}
+
+.Results {
+  background-color: blueviolet;
+  grid-column: col-start 2 / col-end 9;
 }
 
 .main-nav {

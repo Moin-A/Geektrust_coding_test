@@ -1,40 +1,74 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import Themecontext from "./Context/Context";
-import fetchDestinations from "./Utility/collectDestinationList,";
+import axios from "axios";
 
-const Index = () => {
-  const DestinationList = useState(["Moin"]);
-  const VehicleList = useState(["car"]);
-  const [Maps1, setMaps1] = useState([]);
-  const Maps = new Map();
+class Index extends Component {
+  constructor(props) {
+    super(props);
 
-  useEffect(() => {
-    VehicleList[0].map((item) => Maps.set(item[0], item[1]));
-    setMaps1(Maps);
-  }, [Maps]);
+    this.state = {
+      DestinationList: [
+        ["Moin", "uxann"],
+        ["Moinx", "xjanxjan"],
+      ],
+      VehicleList: [["Moinx", "xjanxjan"]],
+      Maps: "",
+      Maps1: [
+        new Map([
+          ["key1", "value1"],
+          ["key2", "value2"],
+        ]),
+      ],
+    };
+  }
 
-  fetchDestinations(
-    DestinationList[1],
-    "https://findfalcone.herokuapp.com/planets"
-  );
-  fetchDestinations(
-    VehicleList[1],
-    "https://ﬁndfalcone.herokuapp.com/vehicles"
-  );
+  componentDidMount() {
+    axios
+      .get(`https://findfalcone.herokuapp.com/vehicles`)
+      .then((res) =>
+        res.data.map((x) => [
+          x.name,
+          x.distance || x.total_no,
+          x.max_distance,
+          x.speed,
+        ])
+      )
+      .then((data) => {
+        let clone = new Map(this.state.Maps1);
+        clone.delete(undefined);
+        data.map((item) => clone.set(item[0], item[1]));
+        this.setState({ Maps1: clone, VehicleList: data });
+      });
+    axios
+      .get(`https://findfalcone.herokuapp.com/planets`)
+      .then((res) =>
+        res.data.map((x) => [
+          x.name,
+          x.distance || x.total_no,
+          x.max_distance,
+          x.speed,
+        ])
+      )
+      .then((data) => {
+        this.setState({ DestinationList: data });
+      });
+  }
 
-  return (
-    <React.StrictMode>
-      <Themecontext.Provider value={{ DestinationList, VehicleList, Maps1 }}>
-        <App />
-      </Themecontext.Provider>
-    </React.StrictMode>
-  );
-};
+  render() {
+    const { DestinationList, VehicleList, Maps1 } = this.state;
+    return (
+      <React.StrictMode>
+        <App
+          DestinationList={DestinationList}
+          VehicleList={VehicleList}
+          Maps1={Maps1}
+        />
+      </React.StrictMode>
+    );
+  }
+}
 
 ReactDOM.render(<Index />, document.getElementById("root"));
 
-serviceWorker.unregister();
+// serviceWorker.unregister();

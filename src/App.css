@@ -20,10 +20,13 @@ body {
 .container {
   overflow: unset;
   display: grid;
-  overflow: scroll;
   position: relative;
   grid-template-rows: 20vh 50vh;
   grid-template-columns: [column-start] 1fr [centre-start] repeat(12, [col-start] minmax(min-content, 14rem) [col-end]) [centre-end] 1fr [column-end]; }
+
+.Results {
+  background-color: blueviolet;
+  grid-column: col-start 2 / col-end 9; }
 
 .main-nav {
   background-color: 0;
