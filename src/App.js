@@ -22,7 +22,6 @@ class App extends Component {
   }
 
   handler(event, states) {
-    debugger;
     this.setState({ ...states });
     let x = Object.keys({ ...states });
   }
@@ -65,7 +64,7 @@ class App extends Component {
               Maps={this.state.Maps1}
               handler={this.handler}
             />
-            <Results State={this.state} />
+            <Results State={this.state} VehicleList={VehicleList} />
           </div>
         </div>
       </ThemeContext.Provider>

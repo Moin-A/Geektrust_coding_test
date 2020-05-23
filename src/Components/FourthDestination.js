@@ -19,7 +19,6 @@ class FourthDestination extends Component {
       this.setState({ isselected: true });
       this.setState({ FourthVehicle: event.target.value });
       Maps.set(event.target.value, Maps.get(event.target.value) - 1);
-      debugger;
       this.props.handler(event, {
         FourthVehicle: event.target.value,
         FourthDestination: this.state.FourthDestination,
