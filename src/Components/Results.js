@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import ThemeContext from "../Context/Context";
+
 import { cloneDeep } from "lodash";
 
 class Results extends Component {
   componentWillReceiveProps(props, state) {
     let copy1 = cloneDeep(props);
     delete copy1.State.Maps1;
-    if (Object.entries(copy1.State).length == 0) return;
+    if (Object.entries(copy1.State).length === 0) return;
     const { VehicleList } = { ...props };
     let copy = new Map();
 

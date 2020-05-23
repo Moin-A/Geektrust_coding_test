@@ -1,4 +1,4 @@
-import React, { Component, render } from "react";
+import React, { Component } from "react";
 
 class SecondDestination extends Component {
   constructor(props) {
@@ -59,9 +59,9 @@ class SecondDestination extends Component {
               checked={this.state.SecondVehicle === item[0]}
               value={item[0]}
               disabled={
-                moin2.next().value == 0 ||
+                moin2.next().value === 0 ||
                 this.state.isselected ||
-                this.state.SecondDestination == undefined ||
+                this.state.SecondDestination === undefined ||
                 +this.state.SecondDestination.split(",")[1] > +item[2]
               }
               onChange={(e) => {

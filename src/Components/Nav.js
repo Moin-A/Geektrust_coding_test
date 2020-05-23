@@ -1,9 +1,7 @@
 import useDocumentScrollThrottled from "../Utility/useDocumentScrollThrottled";
-import React, { useState, useContext } from "react";
-import ThemeContext from "../Context/Context";
+import React, { useState } from "react";
 
 const Nav = () => {
-  const Context = useContext(ThemeContext);
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
   const [shouldShowShadow, setShouldShowShadow] = useState(false);
 

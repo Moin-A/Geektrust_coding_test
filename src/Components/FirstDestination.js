@@ -1,5 +1,5 @@
-import React, { Component, render } from "react";
-import { cloneDeep } from "lodash";
+import React, { Component } from "react";
+
 import ThemeContext from "../Context/Context";
 
 class FirstDestination extends Component {
@@ -62,9 +62,9 @@ class FirstDestination extends Component {
               checked={this.state.FirstVehicle === item[0]}
               value={item[0]}
               disabled={
-                moin2.next().value == 0 ||
+                moin2.next().value === 0 ||
                 this.state.isselected ||
-                this.state.FirstDestination == undefined ||
+                this.state.FirstDestination === undefined ||
                 +this.state.FirstDestination.split(",")[1] > +item[2]
               }
               onChange={(e) => {

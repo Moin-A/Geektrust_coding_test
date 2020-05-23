@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Nav from "./Components/Nav";
 import FirstDesctination from "./Components/FirstDestination";
@@ -23,7 +22,6 @@ class App extends Component {
 
   handler(event, states) {
     this.setState({ ...states });
-    let x = Object.keys({ ...states });
   }
 
   componentDidUpdate(prevProps) {
@@ -33,7 +31,7 @@ class App extends Component {
   }
 
   render() {
-    const { DestinationList, VehicleList, Maps1 } = this.props;
+    const { DestinationList, VehicleList } = this.props;
 
     return (
       <ThemeContext.Provider value={this.state}>
