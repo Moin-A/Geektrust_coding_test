@@ -6,7 +6,6 @@ import ThirdDesctination from "./Components/ThirdDestination";
 import FourthDestination from "./Components/FourthDestination";
 import React, { Component } from "react";
 import Results from "./Components/Results";
-import ThemeContext from "./Context/Context";
 import ErrorBoundary from "./ErrorBoundry";
 
 class App extends Component {
@@ -25,9 +24,15 @@ class App extends Component {
     this.setState({ ...states });
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.Maps1 !== this.state.Maps1) {
+  componentDidUpdate(prevProps, state) {
+    if (prevProps.Maps1 !== state.Maps1) {
       this.setState({ Maps1: prevProps.Maps1 });
+    }
+  }
+
+  componentDidMount() {
+    if (this.state.Maps1 !== this.state.Map1) {
+      this.setState({ Maps1: this.state.Maps1 });
     }
   }
 
@@ -35,37 +40,35 @@ class App extends Component {
     const { DestinationList, VehicleList } = this.props;
 
     return (
-      <ThemeContext.Provider value={this.state}>
-        <div>
-          <div className="container" style={{ color: "red", height: "900px" }}>
-            <FirstDesctination
-              DestinationList={DestinationList}
-              VehicleList={VehicleList}
-              Maps={this.state.Maps1}
-              handler={this.handler}
-            />
-            <SecondDestination
-              DestinationList={DestinationList}
-              VehicleList={VehicleList}
-              Maps={this.state.Maps1}
-              handler={this.handler}
-            />
-            <ThirdDesctination
-              DestinationList={DestinationList}
-              VehicleList={VehicleList}
-              Maps={this.state.Maps1}
-              handler={this.handler}
-            />
-            <FourthDestination
-              DestinationList={DestinationList}
-              VehicleList={VehicleList}
-              Maps={this.state.Maps1}
-              handler={this.handler}
-            />
-            <Results State={this.state} VehicleList={VehicleList} />
-          </div>
+      <div>
+        <div className="container" style={{ color: "red", height: "900px" }}>
+          <FirstDesctination
+            DestinationList={DestinationList}
+            VehicleList={VehicleList}
+            Maps={this.state.Maps1}
+            handler={this.handler}
+          />
+          <SecondDestination
+            DestinationList={DestinationList}
+            VehicleList={VehicleList}
+            Maps={this.state.Maps1}
+            handler={this.handler}
+          />
+          <ThirdDesctination
+            DestinationList={DestinationList}
+            VehicleList={VehicleList}
+            Maps={this.state.Maps1}
+            handler={this.handler}
+          />
+          <FourthDestination
+            DestinationList={DestinationList}
+            VehicleList={VehicleList}
+            Maps={this.state.Maps1}
+            handler={this.handler}
+          />
+          <Results State={this.state} VehicleList={VehicleList} />
         </div>
-      </ThemeContext.Provider>
+      </div>
     );
   }
 }

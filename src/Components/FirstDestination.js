@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
-import ThemeContext from "../Context/Context";
-
 class FirstDestination extends Component {
-  static contextType = ThemeContext.Consumer;
   state = {
     selectedoption: "",
     isselected: false,
@@ -63,7 +60,6 @@ class FirstDestination extends Component {
                 +this.state.FirstDestination.split(",")[1] > +item[2]
               }
               onChange={(e) => {
-                this.setState({ FirstVehicle: e.target.value });
                 handleChange(e, Maps);
               }}
             ></input>
