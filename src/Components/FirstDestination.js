@@ -21,7 +21,7 @@ class FirstDestination extends Component {
     };
 
     return (
-      <div style={{ color: "black" }} className="FirstDestination">
+      <div style={{ color: "black" }} className="FirstDestination card">
         <label htmlFor={"Location"}>
           Desctination1
           <select

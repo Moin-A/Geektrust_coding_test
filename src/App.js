@@ -12,6 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.handler = this.handler.bind(this);
+
     this.state = {
       Maps1: new Map([
         ["key1", "value1"],
@@ -19,6 +20,10 @@ class App extends Component {
       ]),
     };
   }
+
+  resetForm = () => {
+    this.setState(this.baseState);
+  };
 
   handler(event, states) {
     this.setState({ ...states });
@@ -66,7 +71,11 @@ class App extends Component {
             Maps={this.state.Maps1}
             handler={this.handler}
           />
-          <Results State={this.state} VehicleList={VehicleList} />
+          <Results
+            State={this.state}
+            VehicleList={VehicleList}
+            resetform={this.resetForm}
+          />
         </div>
       </div>
     );

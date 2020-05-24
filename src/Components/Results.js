@@ -27,6 +27,7 @@ class Results extends Component {
     VehicleList.map((item) => copy.set(item[0], [item[1], item[2]]));
     let length = Object.values(copy1.State).length;
     let vehicle = Object.values(copy1.State)[length - 2];
+    debugger;
     let Destination = Object.values(copy1.State)[length - 1].split(",");
     let speed = copy.get(vehicle)[0];
     let Time = Destination[1] / speed;

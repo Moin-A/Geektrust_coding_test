@@ -30,6 +30,17 @@ body {
   background-color: blueviolet;
   grid-column: col-start 2 / col-end 9; }
 
+.card {
+  transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer; }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.5rem); }
+
 .main-nav {
   z-index: 19;
   height: 80px;
@@ -79,7 +90,9 @@ body {
 .FirstDestination {
   grid-column: col-start 2 / col-end 3;
   margin: 2rem;
-  background-color: green; }
+  background-color: green;
+  text-align: center;
+  padding: 2rem; }
 
 .SecondDestination {
   grid-column: col-start 4/col-end 5;
