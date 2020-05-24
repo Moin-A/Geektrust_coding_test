@@ -5,6 +5,7 @@ import axios from "axios";
 import { Router } from "@reach/router";
 import Home from "./Components/Home";
 import Nav from "./Components/Nav";
+import ErrorBoundary from "./ErrorBoundry";
 
 class Index extends Component {
   constructor(props) {

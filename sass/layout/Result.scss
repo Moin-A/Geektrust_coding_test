@@ -1,11 +1,20 @@
 .Results {
+  background: rgb(50, 113, 122);
+  background: linear-gradient(
+    338deg,
+    rgba(50, 113, 122, 0.542454481792717) 0%,
+    rgba(52, 98, 118, 1) 26%,
+    rgba(112, 110, 54, 1) 60%,
+    rgba(57, 54, 105, 0.5760679271708684) 100%,
+    rgba(98, 70, 84, 0.08587184873949583) 100%
+  );
   margin: 2rem;
-  max-height: 20rem;
+  max-height: 30rem;
   h1 {
     padding: 5px 25px;
     color: white;
     font-size: 35px;
-    padding: 40px;
+    padding: 9px;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;

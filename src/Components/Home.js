@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-const plane = require("../space.png");
+const plane = require("../falconeAI.jpg");
 
 class Home extends Component {
   render() {

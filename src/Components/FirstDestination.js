@@ -22,7 +22,7 @@ class FirstDestination extends Component {
 
     return (
       <div style={{ color: "black" }} className="FirstDestination card">
-        <label htmlFor={"Location"}>
+        <label htmlFor={"Location"} key={1}>
           Desctination1
           <select
             style={{ width: "66%" }}
@@ -43,31 +43,31 @@ class FirstDestination extends Component {
             ))}
           </select>
         </label>
-
-        {VehicleList.map((item) => (
-          <React.Fragment>
-            <br />
-            <input
-              key={`Fir${item}`}
-              type={"radio"}
-              id={`Fir${item}`}
-              checked={this.state.FirstVehicle === item[0]}
-              value={item[0]}
-              disabled={
-                moin2.next().value === 0 ||
-                this.state.isselected ||
-                this.state.FirstDestination === undefined ||
-                +this.state.FirstDestination.split(",")[1] > +item[2]
-              }
-              onChange={(e) => {
-                handleChange(e, Maps);
-              }}
-            ></input>
-            <label htmlFor={`Fir${item}`}>
-              {item[0]} {moin.next().value}
-            </label>
-          </React.Fragment>
-        ))}
+        <div>
+          {VehicleList.map((item) => (
+            <React.Fragment key={1}>
+              <input
+                key={`Fir${item}`}
+                type={"radio"}
+                id={`Fir${item}`}
+                checked={this.state.FirstVehicle === item[0]}
+                value={item[0]}
+                disabled={
+                  moin2.next().value === 0 ||
+                  this.state.isselected ||
+                  this.state.FirstDestination === undefined ||
+                  +this.state.FirstDestination.split(",")[1] > +item[2]
+                }
+                onChange={(e) => {
+                  handleChange(e, Maps);
+                }}
+              ></input>
+              <label htmlFor={`Fir${item}`}>
+                {item[0]} {moin.next().value}
+              </label>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     );
   }

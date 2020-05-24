@@ -43,29 +43,29 @@ class FourthDestination extends Component {
             ))}
           </select>
         </label>
-
-        {VehicleList.map((item) => (
-          <React.Fragment>
-            <br />
-            <input
-              key={`Fou${item}`}
-              type={"radio"}
-              id={`Fou${item}`}
-              checked={this.state.FourthVehicle === item[0]}
-              value={item[0]}
-              disabled={
-                moin2.next().value === 0 ||
-                this.state.isselected ||
-                this.state.FourthDestination === undefined ||
-                +this.state.FourthDestination.split(",")[1] > +item[2]
-              }
-              onChange={(e) => handleChange(e, Maps)}
-            ></input>
-            <label htmlFor={`Fou${item}`}>
-              {item[0]} {moin.next().value}
-            </label>
-          </React.Fragment>
-        ))}
+        <div>
+          {VehicleList.map((item) => (
+            <React.Fragment>
+              <input
+                key={`Fou${item}`}
+                type={"radio"}
+                id={`Fou${item}`}
+                checked={this.state.FourthVehicle === item[0]}
+                value={item[0]}
+                disabled={
+                  moin2.next().value === 0 ||
+                  this.state.isselected ||
+                  this.state.FourthDestination === undefined ||
+                  +this.state.FourthDestination.split(",")[1] > +item[2]
+                }
+                onChange={(e) => handleChange(e, Maps)}
+              ></input>
+              <label htmlFor={`Fou${item}`}>
+                {item[0]} {moin.next().value}
+              </label>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     );
   }

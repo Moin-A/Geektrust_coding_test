@@ -1,3 +1,4 @@
+import { Link, Router } from "@reach/router";
 import React, { Component } from "react";
 import Modal from "./Modal";
 import { cloneDeep } from "lodash";
@@ -9,6 +10,8 @@ class Results extends Component {
     this.fetcthD = this.fetcthD.bind(this);
     this.secondfetch = this.secondfetch.bind(this);
     this.state = {
+      FinalResult: undefined,
+      Capturedplanet: undefined,
       loading: true,
       showModal: false,
       Result: 0,
@@ -27,7 +30,6 @@ class Results extends Component {
     VehicleList.map((item) => copy.set(item[0], [item[1], item[2]]));
     let length = Object.values(copy1.State).length;
     let vehicle = Object.values(copy1.State)[length - 2];
-    debugger;
     let Destination = Object.values(copy1.State)[length - 1].split(",");
     let speed = copy.get(vehicle)[0];
     let Time = Destination[1] / speed;
@@ -79,26 +81,61 @@ class Results extends Component {
 
   render() {
     const { showModal } = this.state;
+
+    const isLoggedIn = this.state.FinalResult;
+    let button;
+    if (isLoggedIn === "success") {
+      button = (
+        <React.Fragment>
+          <h1>Sucesss</h1>
+          <h1>Queen was found on {this.state.Capturedplanet}</h1>
+          <h1>The Search Took {this.state.Result} hrs</h1>
+        </React.Fragment>
+      );
+    }
+
+    if (isLoggedIn === "false") {
+      button = (
+        <React.Fragment>
+          <h1>Sorry ! The Queen has Excaped</h1>
+          <h1>The Search patrol took {this.state.Result} hrs</h1>
+        </React.Fragment>
+      );
+    }
+    if (isLoggedIn === undefined) {
+      button = (
+        <React.Fragment>
+          <h1 style={{ margin: 0, padding: 0 }}>Score</h1>
+          <h1 style={{ padding: "0.5rem" }}>{this.state.Result}</h1>
+        </React.Fragment>
+      );
+    }
+
+    //   button = (
+    //     <div>
+    //       <h1 style={{ margin: 0, padding: 0 }}>Score</h1>
+    //       <h1 style={{ padding: "0.5rem" }}>{this.state.Result}</h1>
+    //     </div>
+    //   );
+    // }
+
     return (
       <div className={"Results"} style={{ color: "black" }}>
-        <h1>{this.state.Result}</h1>
+        {button}
+
         {showModal ? (
           <Modal>
             <h1>Would you like to Submit your Answer</h1>
             <div className="buttons">
               <button onClick={this.fetcthD}>Yes</button>
-              <button
-                onChange={(e) => {
-                  this.toggleModal();
-                }}
-              >
-                No, I am a monster
+              <button path="/" onClick={this.toggleModal}>
+                NO
               </button>
             </div>
           </Modal>
         ) : null}
 
-        <button onClick={this.toggleModal}>S</button>
+        <button onClick={this.toggleModal}>SUBMIT</button>
       </div>
     );
   }

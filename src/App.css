@@ -20,6 +20,7 @@ body {
   margin: 0; }
 
 .container {
+  background: linear-gradient(90deg, rgba(50, 56, 122, 0.979429) 27%, #393669 65%, #465d62 98%);
   overflow: unset;
   display: grid;
   position: relative;
@@ -37,9 +38,39 @@ body {
   padding: 2rem;
   border-radius: 0.5rem;
   cursor: pointer; }
+  .card div {
+    display: flex;
+    font-weight: 400;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    flex-direction: column;
+    margin: 6px 4px;
+    transform: translateY(28px);
+    color: 0; }
+    .card div input {
+      font-size: 0px;
+      transform: translateY(28px); }
+      .card div input:checked + span {
+        font-weight: bold;
+        color: black;
+        border: 5px solid #ffffff; }
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-0.5rem); }
+
+input[type="radio"]:checked + label {
+  font-weight: 600; }
+
+input {
+  font-weight: 600; }
+
+input[type="radio"] {
+  transform: scale(2); }
+
+input[type="radio"]:checked ~ .check {
+  font-weight: 600; }
+
+input[type="radio"]:checked ~ .check .inside {
+  font-weight: 600; }
 
 .main-nav {
   z-index: 19;
@@ -90,24 +121,33 @@ body {
 .FirstDestination {
   grid-column: col-start 2 / col-end 3;
   margin: 2rem;
-  background-color: green;
+  background: #32717a;
+  background: #32717a;
+  background: #32717a;
+  background: linear-gradient(338deg, rgba(50, 113, 122, 0.542454) 0%, #a4c1cd 23%, #eeecb9 60%, rgba(57, 54, 105, 0.576068) 100%, rgba(98, 70, 84, 0.0858718) 100%);
   text-align: center;
   padding: 2rem; }
 
 .SecondDestination {
-  grid-column: col-start 4/col-end 5;
+  grid-column: col-start 4 / col-end 5;
   margin: 2rem;
-  background-color: purple; }
+  background: #32717a;
+  background: #32717a;
+  background: linear-gradient(338deg, rgba(50, 113, 122, 0.542454) 0%, #a4c1cd 23%, #eeecb9 60%, rgba(57, 54, 105, 0.576068) 100%, rgba(98, 70, 84, 0.0858718) 100%); }
 
 .ThirdDestination {
   grid-column: col-start 6 / col-end 7;
   margin: 2rem;
-  background-color: yellow; }
+  background: #32717a;
+  background: #32717a;
+  background: linear-gradient(338deg, rgba(50, 113, 122, 0.542454) 0%, #a4c1cd 23%, #eeecb9 60%, rgba(57, 54, 105, 0.576068) 100%, rgba(98, 70, 84, 0.0858718) 100%); }
 
 .FourthDestination {
-  grid-column: col-start 8/col-end 9;
+  grid-column: col-start 8 / col-end 9;
   margin: 2rem;
-  background-color: pink; }
+  background: #32717a;
+  background: #32717a;
+  background: linear-gradient(338deg, rgba(50, 113, 122, 0.542454) 0%, #a4c1cd 23%, #eeecb9 60%, rgba(57, 54, 105, 0.576068) 100%, rgba(98, 70, 84, 0.0858718) 100%); }
 
 #modal button,
 .details button {
@@ -159,13 +199,15 @@ button {
   cursor: pointer; }
 
 .Results {
+  background: #32717a;
+  background: linear-gradient(338deg, rgba(50, 113, 122, 0.542454) 0%, #346276 26%, #706e36 60%, rgba(57, 54, 105, 0.576068) 100%, rgba(98, 70, 84, 0.0858718) 100%);
   margin: 2rem;
-  max-height: 20rem; }
+  max-height: 30rem; }
   .Results h1 {
     padding: 5px 25px;
     color: white;
     font-size: 35px;
-    padding: 40px;
+    padding: 9px;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;

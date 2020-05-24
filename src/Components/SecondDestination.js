@@ -25,6 +25,7 @@ class SecondDestination extends Component {
         <label htmlFor={"Location"}>
           Desctination 2
           <select
+            className={"card-content"}
             style={{ width: "66%" }}
             id={"Location"}
             value={this.state.SecondDestination}
@@ -43,31 +44,31 @@ class SecondDestination extends Component {
             ))}
           </select>
         </label>
-
-        {VehicleList.map((item) => (
-          <React.Fragment>
-            <br />
-            <input
-              key={`Sec${item}`}
-              type={"radio"}
-              id={`Sec${item}`}
-              checked={this.state.SecondVehicle === item[0]}
-              value={item[0]}
-              disabled={
-                moin2.next().value === 0 ||
-                this.state.isselected ||
-                this.state.SecondDestination === undefined ||
-                +this.state.SecondDestination.split(",")[1] > +item[2]
-              }
-              onChange={(e) => {
-                handleChange(e, Maps);
-              }}
-            ></input>
-            <label htmlFor={`Sec${item}`}>
-              {item[0]} {moin.next().value}
-            </label>
-          </React.Fragment>
-        ))}
+        <div>
+          {VehicleList.map((item) => (
+            <React.Fragment>
+              <input
+                key={`Sec${item}`}
+                type={"radio"}
+                id={`Sec${item}`}
+                checked={this.state.SecondVehicle === item[0]}
+                value={item[0]}
+                disabled={
+                  moin2.next().value === 0 ||
+                  this.state.isselected ||
+                  this.state.SecondDestination === undefined ||
+                  +this.state.SecondDestination.split(",")[1] > +item[2]
+                }
+                onChange={(e) => {
+                  handleChange(e, Maps);
+                }}
+              ></input>
+              <label htmlFor={`Sec${item}`}>
+                {item[0]} {moin.next().value}
+              </label>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     );
   }

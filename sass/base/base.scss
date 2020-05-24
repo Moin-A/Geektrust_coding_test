@@ -33,6 +33,12 @@ body {
 }
 
 .container {
+  background: linear-gradient(
+    90deg,
+    rgba(50, 56, 122, 0.9794292717086834) 27%,
+    rgba(57, 54, 105, 1) 65%,
+    rgba(70, 93, 98, 1) 98%
+  );
   overflow: unset;
   display: grid;
   position: relative;
@@ -50,6 +56,26 @@ body {
 }
 
 .card {
+  div {
+    display: flex;
+    font-weight: 400;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    flex-direction: column;
+    margin: 6px 4px;
+    transform: translateY(28px);
+    color: blue($color: #000000);
+
+    input {
+      font-size: 0px;
+      transform: translateY(28px);
+      &:checked + span {
+        font-weight: bold;
+        color: black;
+        border: 5px solid #ffffff;
+      }
+    }
+  }
   transition: all 0.3s;
   transition: all 0.3s;
   text-align: center;
@@ -60,4 +86,21 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-0.5rem);
   }
+}
+input[type="radio"]:checked + label {
+  font-weight: 600;
+}
+
+input {
+  font-weight: 600;
+}
+
+input[type="radio"] {
+  transform: scale(2);
+}
+input[type="radio"]:checked ~ .check {
+  font-weight: 600;
+}
+input[type="radio"]:checked ~ .check .inside {
+  font-weight: 600;
 }

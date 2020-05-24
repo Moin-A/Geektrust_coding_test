@@ -15,15 +15,11 @@ class App extends Component {
 
     this.state = {
       Maps1: new Map([
-        ["key1", "value1"],
-        ["key2", "value2"],
+        [[], []],
+        [[], []],
       ]),
     };
   }
-
-  resetForm = () => {
-    this.setState(this.baseState);
-  };
 
   handler(event, states) {
     this.setState({ ...states });
