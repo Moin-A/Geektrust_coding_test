@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import axios from "axios";
+import { Router } from "@reach/router";
+import Home from "./Components/Home";
+import Nav from "./Components/Nav";
 
 class Index extends Component {
   constructor(props) {
@@ -57,13 +60,21 @@ class Index extends Component {
 
   render() {
     const { DestinationList, VehicleList, Maps1 } = this.state;
+
     return (
       <React.StrictMode>
-        <App
-          DestinationList={DestinationList}
-          VehicleList={VehicleList}
-          Maps1={Maps1}
-        />
+        <div>
+          <Nav style={{ color: "red", height: "900px" }}></Nav>
+          <Router>
+            <App
+              path="/Home"
+              DestinationList={DestinationList}
+              VehicleList={VehicleList}
+              Maps1={Maps1}
+            />
+            <Home path="/" />
+          </Router>
+        </div>
       </React.StrictMode>
     );
   }

@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 
 class ThirdDestination extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedoption: "",
-      isselected: false,
-    };
-  }
+  state = {
+    selectedoption: "",
+    isselected: false,
+  };
 
   render() {
     const { DestinationList, VehicleList, Maps } = this.props;
-
     let moin = Maps.values();
     let moin2 = Maps.values();
-
     const handleChange = (event, Maps) => {
       this.setState({ isselected: true });
       this.setState({ ThirdVehicle: event.target.value });
@@ -24,7 +19,6 @@ class ThirdDestination extends Component {
         ThirdDestination: this.state.ThirdDestination,
       });
     };
-
     return (
       <div style={{ color: "black" }} className="ThirdDestination">
         <label htmlFor={"Location"}>

@@ -18,14 +18,7 @@ const Nav = () => {
 
   const shadowStyle = shouldShowShadow ? "shadow" : "";
   const hiddenStyle = shouldHideHeader ? "issticky" : "";
-  return (
-    <nav
-      className={`main-nav ${hiddenStyle} ${shadowStyle}`}
-      style={{ alignItems: "centre" }}
-    >
-      Nav
-    </nav>
-  );
+  return <nav className={`main-nav ${hiddenStyle} ${shadowStyle}`}>Nav</nav>;
 };
 
 export default Nav;

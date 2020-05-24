@@ -4,20 +4,15 @@ import ThemeContext from "../Context/Context";
 
 class FirstDestination extends Component {
   static contextType = ThemeContext.Consumer;
-  constructor(props) {
-    super(props);
-    this.state = {
-      FirstVehicle: "",
-      isselected: false,
-    };
-  }
+  state = {
+    selectedoption: "",
+    isselected: false,
+  };
 
   render() {
     const { DestinationList, VehicleList, Maps } = this.props;
-
     let moin = Maps.values();
     let moin2 = Maps.values();
-
     const handleChange = (event, Maps) => {
       this.setState({ isselected: true });
       this.setState({ FirstVehicle: event.target.value });

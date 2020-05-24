@@ -1,32 +1,35 @@
 .main-nav {
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #b5a497;
-        z-index: -1;
-        opacity: 0.5;
-    }
-    background-color: red($color: #000000);
-    position: sticky;
-    display: grid;
-    padding: 0.5rem 0rem;
-    grid-column: column-start/column-end;
-    align-items: center;
+  &::before {
+    content: "";
+    max-height: 90px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #b5a497;
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        background: url('http://www.dummyimage.com/300x300/000/fff&text=parent+image');
-        z-index: 11;
-    }
+    opacity: 0.5;
+  }
+  height: 80px;
+  z-index: 19;
+  background-color: red($color: #000000);
+  position: sticky;
+  display: grid;
+  padding: 0;
+  grid-column: column-start/column-end;
+  align-items: center;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: url("http://www.dummyimage.com/300x300/000/fff&text=parent+image");
+    z-index: 11;
+  }
 }
 
 .issticky {
-    top: 0;
+  top: 0;
 }

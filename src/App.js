@@ -7,6 +7,7 @@ import FourthDestination from "./Components/FourthDestination";
 import React, { Component } from "react";
 import Results from "./Components/Results";
 import ThemeContext from "./Context/Context";
+import ErrorBoundary from "./ErrorBoundry";
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +38,6 @@ class App extends Component {
       <ThemeContext.Provider value={this.state}>
         <div>
           <div className="container" style={{ color: "red", height: "900px" }}>
-            <Nav style={{ color: "red", height: "900px" }}></Nav>
             <FirstDesctination
               DestinationList={DestinationList}
               VehicleList={VehicleList}
@@ -69,4 +69,11 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+export default function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <App {...props} />
+    </ErrorBoundary>
+  );
+}
