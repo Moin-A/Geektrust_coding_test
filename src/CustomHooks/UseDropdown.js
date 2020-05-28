@@ -1,53 +1,27 @@
 import React, { useState, useEffect, useContext } from "react";
 import ThemeContext from "../Context/Context";
+import Api from "../Api";
+import axios from "axios";
 
-const UseDropdown = (label, defaultvalue, List) => {
-  const { DestinationList, VehicleList } = useContext(ThemeContext);
-  const [state, setstate] = useState("xjan");
-  const id = `use-dropdown-${label.replace(" ", "").toLowerCase()}`;
+const UseDropdown = () => {
+  const [data] = Api();
 
-  const DestinationDropdown = () => (
-    <label htmlFor={id}>
-      {label}
-      <select
-        id={id}
-        value={DestinationList[0][0]}
-        // onChange={(event) => setstate(event.target.value)}
-        // onBlur={(event) => setstate(event.target.value)}
-      >
-        <option></option>
-        {DestinationList[0].map((item) => (
-          <option key={item} value={item}>
-            {item}
-          </option>
+  const PlanetDropdown = () => (
+    <div>
+      <div className="FirstDestination">
+        {data.map((x) => (
+          <button>{x.name}</button>
         ))}
-      </select>
-    </label>
-  );
-  const VehicleDropdown = () => (
-    <label htmlFor={id}>
-      {label}
-      <select
-        id={id}
-        value={DestinationList[0][0]}
-        // onChange={(event) => setstate(event.target.value)}
-        // onBlur={(event) => setstate(event.target.value)}
-      >
-        <option></option>
-        {VehicleList[0].map((item) => (
-          <option key={item} value={item}>
-            {item}
-          </option>
+      </div>
+
+      <div className="FirstDestination">
+        {data.map((x) => (
+          <button>{x.name}</button>
         ))}
-      </select>
-    </label>
+      </div>
+    </div>
   );
 
-  if (List === "DestinationList") {
-    return [state, DestinationDropdown, setstate];
-  } else {
-    return [state, VehicleDropdown, setstate];
-  }
+  return [PlanetDropdown];
 };
-
 export default UseDropdown;
