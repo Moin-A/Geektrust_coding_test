@@ -16,28 +16,21 @@ const UseDropdown = () => {
     setindex(+Object.keys(data)[0]);
   }, [data]);
 
-  // function nextProperty() {
-  //   debugger;
-  // }
+  function nextProperty() {}
 
-  // function prevProperty() {
-  //   setindex((prevstate) => prevstate + 1);
-  // }
+  function prevProperty() {
+    setindex((prevstate) => prevstate + 1);
+  }
 
   const PlanetDropdown = () => (
     <React.Fragment>
-      <button onClick={() => setindex((prevstate) => prevstate + 1)}>
-        Next
-      </button>
-      <button onClick={() => setindex((prevstate) => prevstate - 1)}>
-        Prev
-      </button>
+      <button onClick={() => setindex(index + 1)}>Next</button>
+      <button onClick={() => setindex(index - 1)}>Prev</button>
       <div className="container_section1">
         <div className={"grid-wrapper"}>
           <div
             className="FirstDestination"
             style={{
-              position: "absolute",
               transform: `translateX(-${index * (100 / data.length)}%)`,
             }}
           >

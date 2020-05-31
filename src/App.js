@@ -5,14 +5,15 @@ import UseDropdown from "./CustomHooks/UseDropdown";
 
 const App = () => {
   const [FirsttDropdown] = UseDropdown();
-  // const [SecondDropdown] = UseDropdown();
+  const [SecondDropdown] = UseDropdown();
   // const [ThirdDropdown] = UseDropdown();
   // const [FourthDropdown] = UseDropdown();
 
   return (
-    <div>
+    <React.Fragment>
       <FirsttDropdown />
-    </div>
+      <SecondDropdown />
+    </React.Fragment>
   );
 };
 
