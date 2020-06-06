@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import ThemeContext from "../Context/Context";
 import Api from "../Api/Api";
+import Slider from "../Utility/Slider";
 import VehicleApi from "../Api/Api.vehicle";
 import axios from "axios";
+import { CSSTransition, transit } from "react-css-transition";
 const plane = require("../falconeAI.jpg");
 
 const UseDropdown = () => {
@@ -16,39 +18,23 @@ const UseDropdown = () => {
     setindex(+Object.keys(data)[0]);
   }, [data]);
 
-  function nextProperty() {}
-
-  function prevProperty() {
-    setindex((prevstate) => prevstate + 1);
-  }
-
   const PlanetDropdown = () => (
-    <React.Fragment>
-      <button onClick={() => setindex(index + 1)}>Next</button>
-      <button onClick={() => setindex(index - 1)}>Prev</button>
-      <div className="container_section1">
-        <div className={"grid-wrapper"}>
-          <div
-            className="FirstDestination"
-            style={{
-              transform: `translateX(-${index * (100 / data.length)}%)`,
-            }}
-          >
-            {data.map((x) => (
-              <div>
-                <img src={plane}></img>
-              </div>
+    <section className="section-slider">
+      <div style={{ color: "black" }} className="FirstDestination card">
+        <label htmlFor={"Location"} key={1}>
+          Desctination1
+          <select style={{ width: "66%" }} id={"Location"} value={"v"}>
+            <option />
+            {data1.map((item) => (
+              <option key={item.name} value={item.name}>
+                {item.name}
+              </option>
             ))}
-          </div>
-          {/* 
-      <div className="FirstDestination">
-        {vehicle.map((x) => (
-          <div></div>
-        ))}
-    </div> */}
-        </div>
+          </select>
+        </label>
       </div>
-    </React.Fragment>
+      <Slider slides={Object.values(data)} />
+    </section>
   );
 
   return [PlanetDropdown];

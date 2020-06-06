@@ -13,6 +13,7 @@ html {
       font-size: 50%; } }
 
 body {
+  transition: all 1s;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
   line-height: 1.6;
@@ -24,17 +25,6 @@ body {
 .container {
   overflow: unset;
   position: relative; }
-  .container_section1 {
-    padding: 10vh;
-    display: grid;
-    grid-column: 10vh 50vh;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 24px; }
-    .container_section1 .grid-wrapper {
-      display: grid;
-      grid-row-gap: 2rem; }
-    .container_section1 div {
-      grid-row-gap: 3rem; }
 
 .main-nav {
   z-index: 19;
@@ -78,31 +68,37 @@ body {
   text-decoration: none; }
   .main-nav a div {
     border-radius: 0.5rem;
-    width: 250px;
     margin: 0 20px;
     text-align: center; }
 
 .container_section1 {
-  position: relative; }
-  .container_section1 .grid-wrapper {
-    overflow-x: hidden; }
-    .container_section1 .grid-wrapper .FirstDestination {
-      height: 100%;
-      position: relative;
-      display: flex; }
-      .container_section1 .grid-wrapper .FirstDestination div {
-        width: 50rem; }
-        .container_section1 .grid-wrapper .FirstDestination div img {
-          max-width: 100%; }
+  position: relative;
+  display: flex;
+  flex: 1;
+  padding: 4rem; }
 
-.grid-wrapper::after {
-  content: "";
-  border: solid 9px;
-  width: 18%;
-  height: 60%;
-  position: absolute;
-  top: 7rem;
-  left: 7rem; }
+.FirstDestination {
+  transition: all 0.5s; }
+
+.grid-wrapper {
+  overflow-y: hidden;
+  max-height: 26rem;
+  flex: 1; }
+  .grid-wrapper img {
+    display: flex; }
+
+.FirstDestination {
+  height: 100%;
+  position: relative; }
+
+.App {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+.section-slider {
+  overflow: hidden;
+  padding: 2rem; }
 
 .SecondDestination {
   grid-column: col-start 4 / col-end 5;
@@ -113,13 +109,6 @@ body {
 
 .ThirdDestination {
   grid-column: col-start 6 / col-end 7;
-  margin: 2rem;
-  background: #32717a;
-  background: #32717a;
-  background: linear-gradient(338deg, rgba(50, 113, 122, 0.542454) 0%, #a4c1cd 23%, #eeecb9 60%, rgba(57, 54, 105, 0.576068) 100%, rgba(98, 70, 84, 0.0858718) 100%); }
-
-.FourthDestination {
-  grid-column: col-start 8 / col-end 9;
   margin: 2rem;
   background: #32717a;
   background: #32717a;

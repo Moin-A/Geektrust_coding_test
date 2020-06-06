@@ -26,12 +26,14 @@ html {
 }
 
 body {
+  transition: all 1s;
   font-family: $font-display;
   font-weight: 300;
   line-height: 1.6;
   font-size: 2rem;
   margin: 0;
   height: 100%;
+
   background: linear-gradient(
     90deg,
     rgba(50, 56, 122, 0.9794292717086834) 27%,
@@ -41,21 +43,6 @@ body {
 }
 
 .container {
-  &_section1 {
-    padding: 10vh;
-    display: grid;
-    grid-column: 10vh 50vh;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 24px;
-    .grid-wrapper {
-      display: grid;
-      grid-row-gap: 2rem;
-    }
-    div {
-      grid-row-gap: 3rem;
-    }
-  }
-
   overflow: unset;
 
   position: relative;
