@@ -1,5 +1,4 @@
 .container_section1 {
-  position: relative;
   display: flex;
   flex: 1;
   padding: 4rem;
@@ -17,28 +16,24 @@
 
 .FirstDestination {
   transition: all 0.5s;
+  margin: 1rem;
 }
 .grid-wrapper {
   overflow-y: hidden;
   max-height: 26rem;
 
   flex: 1;
-  img {
-    display: flex;
-  }
 }
 .FirstDestination {
   height: 100%;
-  position: relative;
 }
 
 .App {
-  position: relative;
+  position: static;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .section-slider {
   overflow: hidden;
-  padding: 2rem;
 }

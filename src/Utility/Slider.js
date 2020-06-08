@@ -41,7 +41,7 @@ const Slider = ({ slides }) => {
     if (activeIndex === 0) {
       return setState({
         ...state,
-        translate: (slides.length - 1) * getWidth(),
+        translate: ((slides.length - 1) * getWidth()) / slides.length,
         activeIndex: slides.length - 1,
       });
     }

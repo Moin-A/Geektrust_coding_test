@@ -23,6 +23,8 @@ const Arrow = ({ direction, handleClick }) => (
       }
       img {
         transform: translateX(${direction === "left" ? "-2" : "2"}px);
+        width: 100%;
+        height: 100%;
         &:focus {
           outline: 0;
         }

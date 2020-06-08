@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const SliderContent = styled.div`
-  transform: translate(-${(props) => props.translate * 3}px);
+  transform: translateX(-${(props) => props.translate}px);
   transition: transform ease-out ${(props) => props.transition}s;
-  height: 35rem;
-  width: 290rem;
+  height: 38rem;
+
+  width: ${(props) => (props.width < 700 ? 1620 : props.width)}px;
   display: flex;
-  flex-flow: 1;
 `;
 export default SliderContent;

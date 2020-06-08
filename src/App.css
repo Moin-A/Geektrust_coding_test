@@ -23,8 +23,7 @@ body {
   background: linear-gradient(90deg, rgba(50, 56, 122, 0.979429) 27%, #393669 65%, #465d62 98%); }
 
 .container {
-  overflow: unset;
-  position: relative; }
+  overflow: unset; }
 
 .main-nav {
   z-index: 19;
@@ -72,33 +71,29 @@ body {
     text-align: center; }
 
 .container_section1 {
-  position: relative;
   display: flex;
   flex: 1;
   padding: 4rem; }
 
 .FirstDestination {
-  transition: all 0.5s; }
+  transition: all 0.5s;
+  margin: 1rem; }
 
 .grid-wrapper {
   overflow-y: hidden;
   max-height: 26rem;
   flex: 1; }
-  .grid-wrapper img {
-    display: flex; }
 
 .FirstDestination {
-  height: 100%;
-  position: relative; }
+  height: 100%; }
 
 .App {
-  position: relative;
+  position: static;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
 
 .section-slider {
-  overflow: hidden;
-  padding: 2rem; }
+  overflow: hidden; }
 
 .SecondDestination {
   grid-column: col-start 4 / col-end 5;
