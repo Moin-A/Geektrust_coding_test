@@ -49,11 +49,13 @@ const UseDropdown = (index, data1, data3, list) => {
     border: 2px solid #444;
     border-radius: 4px;
     font-weight: 400;
+    text-align: center;
     z-index: 5;
   `;
   const handlechange = (e) => {
-    setlabel(e.target.value);
-    setnewlist([...newlist, e.target.value]);
+    debugger;
+    setlabel(e.target.value.split(","));
+    setnewlist([...newlist, e.target.value.split(",")[0]]);
   };
 
   const PlanetDropdown = () => (
@@ -66,9 +68,9 @@ const UseDropdown = (index, data1, data3, list) => {
               key={item.name}
               type={"radio"}
               id={index + item.name}
-              value={item.name}
+              value={[item.name, item.distance]}
               onChange={(e) => handlechange(e)}
-              checked={label === item.name}
+              checked={label[0] === item.name}
               disabled={newlist.includes(item.name) || label !== 0}
             ></StyledInput>
             <Styledlabel
@@ -76,11 +78,13 @@ const UseDropdown = (index, data1, data3, list) => {
               style={{ cursor: "pointer" }}
             >
               {item.name}
+              <br></br>
+              {"Distance:" + item.distance}
             </Styledlabel>
           </React.Fragment>
         ))}
       </div>
-      <Slider slides={Object.values(newdata3)} />
+      <Slider slides={Object.values(newdata3)} label={label} />
     </section>
   );
 

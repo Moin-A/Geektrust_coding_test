@@ -11,7 +11,7 @@ const SliderDiv = styled.div`
   overflow: hidden;
 `;
 
-const Slider = ({ slides }) => {
+const Slider = ({ slides, label }) => {
   const getWidth = () => window.innerWidth;
   const selectedSlide = useState(0);
 
@@ -64,6 +64,7 @@ const Slider = ({ slides }) => {
         {slides.map((slide, i) => (
           <Slide
             key={slide + i}
+            label={label}
             content={slide}
             selectedSlide={selectedSlide}
           ></Slide>

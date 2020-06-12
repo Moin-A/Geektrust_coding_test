@@ -69,8 +69,9 @@ gradually increasing offset/blur */
     background-repeat: no-repeat;
     background-position: center;
     background-color: #24264f63;
-    &:hover{  background-color: #3e8e41;}
-   &:active {
+    &:hover:enabled{  background-color: #3e8e41;}
+    &:disabled{opacity:0.3}
+   &:active:enabled {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -78,17 +79,22 @@ gradually increasing offset/blur */
 
     &:hover{
       scale:scaleY(1.5);
-    }
+    }s
     
   `;
     const Styledh1 = styled.h1`
       text-shadow: 1px 1px #a59696;
     `;
-
+    debugger;
     return (
       <React.Fragment>
-        <StyledDiv onClick={(e) => props.selectedSlide[1](props.content)}>
+        <StyledDiv
+          onClick={(e) => props.selectedSlide[1](props.content)}
+          disabled={!(+props.content.max_distance >= +props.label[1])}
+        >
           <Styledh1>{props.content.name}</Styledh1>
+          <Styledh1>{"Max-Ditance:" + props.content.max_distance}</Styledh1>
+          <Styledh1>{"Speed:" + props.content.speed}</Styledh1>
         </StyledDiv>
       </React.Fragment>
     );
