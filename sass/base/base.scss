@@ -23,6 +23,9 @@ html {
   @media only screen and(max-width:$bp-largest) {
     font-size: 50%;
   }
+  @media only screen and(max-width:70px) {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -45,3 +48,42 @@ body {
 .container {
   overflow: unset;
 }
+
+// button {
+//   position: relative;
+//   background-color: #4caf50;
+//   border: none;
+//   font-size: 28px;
+//   color: #ffffff;
+//   padding: 20px;
+//   width: 200px;
+//   text-align: center;
+//   -webkit-transition-duration: 0.4s; /* Safari */
+//   transition-duration: 0.4s;
+//   text-decoration: none;
+//   overflow: hidden;
+//   cursor: pointer;
+// }
+
+// button {
+//   padding: 15px 25px;
+//   font-size: 24px;
+//   text-align: center;
+//   cursor: pointer;
+//   outline: none;
+//   color: #fff;
+//   background-color: #4caf50;
+//   border: none;
+//   border-radius: 15px;
+//   box-shadow: 0 9px #999;
+// }
+
+// button:hover {
+//   background-color: #3e8e41;
+// }
+
+// button:active {
+//   background-color: #3e8e41;
+//   box-shadow: 0 5px #666;
+//   transform: translateY(4px);
+// }

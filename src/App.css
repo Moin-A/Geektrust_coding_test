@@ -11,6 +11,9 @@ html {
   @media only screen and (max-width: 75em) {
     html {
       font-size: 50%; } }
+  @media only screen and (max-width: 70px) {
+    html {
+      font-size: 50%; } }
 
 body {
   transition: all 1s;
