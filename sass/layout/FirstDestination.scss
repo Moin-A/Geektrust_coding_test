@@ -17,6 +17,9 @@
 .FirstDestination {
   transition: all 0.5s;
   margin: 1rem;
+  .active {
+    background-color: red($color: #000000);
+  }
 }
 .grid-wrapper {
   overflow-y: hidden;

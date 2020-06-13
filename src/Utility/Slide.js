@@ -52,9 +52,10 @@ class Slide extends Component {
   render() {
     const props = this.props;
     const StyledDiv = styled.button`
-box-shadow:0 10px 10px rgba(0,0,0,0.2);
-  /* Layered box-shadows
-gradually increasing offset/blur */
+    .active{
+      background-color: #673ab7;
+    }
+    box-shadow:0 10px 10px rgba(0,0,0,0.2);
     position:relative;
     cursor: pointer;
     max-height: 100%; 
@@ -79,19 +80,40 @@ gradually increasing offset/blur */
 
     &:hover{
       scale:scaleY(1.5);
-    }s
+    }
+  
     
   `;
+
     const Styledh1 = styled.h1`
       text-shadow: 1px 1px #a59696;
     `;
-    debugger;
+
+    const StyedInput = styled.input`
+      width: 4rem;
+      height: 4rem;
+      position: relative;
+      margin: 20px auto;
+      background: #fcfff4;
+      background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+      border-radius: 50px;
+      box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+    `;
+
     return (
       <React.Fragment>
         <StyledDiv
           onClick={(e) => props.selectedSlide[1](props.content)}
           disabled={!(+props.content.max_distance >= +props.label[1])}
         >
+          <StyedInput
+            type="checkbox"
+            checked={true}
+            // type={`${props.selectedSlide[0].name == props.content.name?"submit":}`}
+            checked={
+              props.selectedSlide[0].name == props.content.name ? "checked" : ""
+            }
+          ></StyedInput>
           <Styledh1>{props.content.name}</Styledh1>
           <Styledh1>{"Max-Ditance:" + props.content.max_distance}</Styledh1>
           <Styledh1>{"Speed:" + props.content.speed}</Styledh1>
