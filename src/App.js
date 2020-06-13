@@ -5,6 +5,7 @@ import UseDropdown from "./CustomHooks/UseDropdown";
 import Slider from "./Utility/Slider";
 import Api from "./Api/Api";
 import VehicleApi from "./Api/Api.vehicle";
+import Results from "../src/Components/Results";
 
 const App = () => {
   console.log(`Rendering TestC :`);
@@ -31,6 +32,7 @@ const App = () => {
       <SecondDropdown />
       <ThirdDropdown />
       <FourthDropdown />
+      <Results />
     </div>
   );
 };

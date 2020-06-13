@@ -1,5 +1,6 @@
 import { css, jsx } from "@emotion/core";
 import styled from "styled-components";
+import Context from "../Context/Context";
 
 // const Slide = ((props) => {
 //   const StyledDiv = styled.button`
@@ -47,7 +48,7 @@ import styled from "styled-components";
 
 // export default Slide;
 
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 class Slide extends Component {
   render() {
     const props = this.props;
