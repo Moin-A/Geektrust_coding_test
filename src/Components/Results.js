@@ -1,5 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useContext } from "react";
 import { Link, Router } from "@reach/router";
+import ThemeContext from "../Context/ThemeContext";
 
 import Modal from "./Modal";
 import { cloneDeep } from "lodash";
@@ -145,7 +146,9 @@ const axios = require("axios");
 // export default Results;
 
 const Results = () => {
+  const ContextConsuemer = useContext(ThemeContext);
   const [showModal, updateshowModal] = useState(false);
+
   const [Result, setRessult] = useState(0);
   const toggleModal = () => updateshowModal(!showModal);
   const button = (

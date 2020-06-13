@@ -1,13 +1,15 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Nav from "./Components/Nav";
 import UseDropdown from "./CustomHooks/UseDropdown";
 import Slider from "./Utility/Slider";
 import Api from "./Api/Api";
 import VehicleApi from "./Api/Api.vehicle";
 import Results from "../src/Components/Results";
+import ThemeContext from "./Context/ThemeContext";
 
 const App = () => {
+  const context = useContext(ThemeContext);
   console.log(`Rendering TestC :`);
   const [data] = Api();
   const [data2] = VehicleApi();

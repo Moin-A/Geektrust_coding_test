@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import ThemeContext from "./Context/Context";
+import ThemeContext from "./Context/ThemeContext";
 import App from "./App";
 
 class Index extends Component {

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import SliderContent from "./SliderContent";
 import Slide from "./Slide";
 import Arrow from "./Arrow";
+import ThemeContext from "../Context/ThemeContext";
 
 const SliderDiv = styled.div`
   max-height: auto;
@@ -11,7 +12,8 @@ const SliderDiv = styled.div`
   overflow: hidden;
 `;
 
-const Slider = ({ slides, label }) => {
+const Slider = ({ slides }) => {
+  const context = useContext(ThemeContext);
   const getWidth = () => window.innerWidth;
   const selectedSlide = useState(0);
 
@@ -64,7 +66,6 @@ const Slider = ({ slides, label }) => {
         {slides.map((slide, i) => (
           <Slide
             key={slide + i}
-            label={label}
             content={slide}
             selectedSlide={selectedSlide}
           ></Slide>

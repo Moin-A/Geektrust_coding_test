@@ -1,6 +1,6 @@
 import useDocumentScrollThrottled from "../Utility/useDocumentScrollThrottled";
 import React, { useState, useContext } from "react";
-import ThemeContext from "../Context/Context";
+import ThemeContext from "../Context/ThemeContext";
 import { Link, Router } from "@reach/router";
 import AnimatedButton from "react-animated-buttons";
 
