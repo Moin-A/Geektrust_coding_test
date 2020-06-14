@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ThemeContext from "../Context/ThemeContext";
 
 const Slide = (props) => {
-  const context = useContext(ThemeContext);
+  const { label, Listofselectedvehicle } = useContext(ThemeContext);
   const StyledDiv = styled.button`
     
   .active{
@@ -54,26 +54,27 @@ transform: translateY(4px);
     border-radius: 50px;
     box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
   `;
-  debugger;
+
+  const handleclick = () => {
+    props.selectedSlide[1](props.content);
+    Listofselectedvehicle.push(props.content);
+  };
   return (
-    <ThemeContext.Provider value={8}>
-      <StyledDiv
-        onClick={(e) => props.selectedSlide[1](props.content)}
-        disabled={!(+props.content.max_distance >= +context[1])}
-      >
-        <StyedInput
-          type="checkbox"
-          checked={true}
-          // type={`${props.selectedSlide[0].name == props.content.name?"submit":}`}
-          checked={
-            props.selectedSlide[0].name == props.content.name ? "checked" : ""
-          }
-        ></StyedInput>
-        <Styledh1>{props.content.name}</Styledh1>
-        <Styledh1>{"Max-Ditance:" + props.content.max_distance}</Styledh1>
-        <Styledh1>{"Speed:" + props.content.speed}</Styledh1>
-      </StyledDiv>
-    </ThemeContext.Provider>
+    <StyledDiv
+      onClick={(e) => handleclick(e)}
+      disabled={!(+props.content.max_distance >= +label[1])}
+    >
+      <StyedInput
+        type="checkbox"
+        checked={true}
+        checked={
+          props.selectedSlide[0].name == props.content.name ? "checked" : ""
+        }
+      ></StyedInput>
+      <Styledh1>{props.content.name}</Styledh1>
+      <Styledh1>{"Max-Ditance:" + props.content.max_distance}</Styledh1>
+      <Styledh1>{"Speed:" + props.content.speed}</Styledh1>
+    </StyledDiv>
   );
 };
 

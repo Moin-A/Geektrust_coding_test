@@ -3,11 +3,10 @@ import styled from "styled-components";
 import ThemeContext from "../Context/ThemeContext";
 import Slider from "../Utility/Slider";
 
-const Styledinput = ({ newdata1, index, newdata3, Listofselectedvehicle }) => {
-  const context = useContext(ThemeContext);
+const Userinput = ({ DestinationList, VehicleList, index, list }) => {
+  const [newlist, setnewlist] = list;
   const [label, setlabel] = useState(0);
-
-  const [newlist, setnewlist] = useState([]);
+  const selectedSlide = useState([]);
 
   const StyledInput = styled.input`
     opacity: 0;
@@ -44,11 +43,11 @@ const Styledinput = ({ newdata1, index, newdata3, Listofselectedvehicle }) => {
     setlabel(e.target.value.split(","));
     setnewlist([...newlist, e.target.value.split(",")[0]]);
   };
-
+  debugger;
   return (
-    <ThemeContext.Provider value={{ label, Listofselectedvehicle }}>
+    <React.Fragment>
       <div className="FirstDestination card">
-        {newdata1.map((item) => (
+        {DestinationList.map((item) => (
           <React.Fragment>
             <StyledInput
               name={index + "radanswer"}
@@ -71,9 +70,9 @@ const Styledinput = ({ newdata1, index, newdata3, Listofselectedvehicle }) => {
           </React.Fragment>
         ))}
       </div>
-      <Slider slides={Object.values(newdata3)} />
-    </ThemeContext.Provider>
+      <Slider slides={Object.values(VehicleList)} />
+    </React.Fragment>
   );
 };
 
-export default Styledinput;
+export default Userinput;

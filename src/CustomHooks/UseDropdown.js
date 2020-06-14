@@ -9,7 +9,7 @@ import axios from "axios";
 
 import { CSSTransition, transit } from "react-css-transition";
 
-const UseDropdown = (index, data1, data3, list) => {
+const UseDropdown = (index, data1, data3, list, Listofselectedvehicle) => {
   const [newdata1, setdata] = useState(data1);
   const [newdata3, setdata3] = useState(data3);
   const [newlist, setnewlist] = list;
@@ -26,6 +26,7 @@ const UseDropdown = (index, data1, data3, list) => {
         newdata1={newdata1}
         index={index}
         newdata3={newdata3}
+        Listofselectedvehicle={Listofselectedvehicle}
       ></Styledinput>
       {/* <Slider slides={Object.values(newdata3)} /> */}
     </section>

@@ -9,24 +9,46 @@ import Results from "../src/Components/Results";
 import ThemeContext from "./Context/ThemeContext";
 
 const App = () => {
-  const context = useContext(ThemeContext);
-  console.log(`Rendering TestC :`);
-  const [data] = Api();
-  const [data2] = VehicleApi();
-
+  const Listofselectedvehicle = useState([]);
+  const [DestiantionApidata] = Api();
+  const [VehicelApidata] = VehicleApi();
   const list = useState([]);
-  const selectedslide = useState([]);
-  const [data1, setdata] = useState([]);
-  const [data3, setdata3] = useState([]);
-  const [FirsttDropdown] = UseDropdown(0, data1, data3, list);
-  const [SecondDropdown] = UseDropdown(1, data1, data3, list);
-  const [ThirdDropdown] = UseDropdown(2, data1, data3, list);
-  const [FourthDropdown] = UseDropdown(3, data1, data3, list);
+
+  const [DestiantionApi, setDestinationApi] = useState([]);
+  const [VehicelApi, setVehicleApi] = useState([]);
+  const [FirsttDropdown] = UseDropdown(
+    0,
+    DestiantionApi,
+    VehicelApi,
+    list,
+    Listofselectedvehicle
+  );
+  const [SecondDropdown] = UseDropdown(
+    1,
+    DestiantionApi,
+    VehicelApi,
+    list,
+    Listofselectedvehicle
+  );
+  const [ThirdDropdown] = UseDropdown(
+    2,
+    DestiantionApi,
+    VehicelApi,
+    list,
+    Listofselectedvehicle
+  );
+  const [FourthDropdown] = UseDropdown(
+    3,
+    DestiantionApi,
+    VehicelApi,
+    list,
+    Listofselectedvehicle
+  );
 
   useEffect(() => {
-    setdata(data);
-    setdata3(data2);
-  }, [data, data2]);
+    setDestinationApi(DestiantionApidata);
+    setVehicleApi(VehicelApidata);
+  }, [DestiantionApidata, VehicelApidata]);
 
   return (
     <div className="App">
@@ -34,7 +56,10 @@ const App = () => {
       <SecondDropdown />
       <ThirdDropdown />
       <FourthDropdown />
-      <Results />
+      <Results
+        Listofselectedvehicle={Listofselectedvehicle}
+        selectedplanetlist={list[0]}
+      />
     </div>
   );
 };
